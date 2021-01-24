@@ -37,9 +37,25 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="1vs1-functions.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="1vs1-functions.h" />
+		<Unit filename="1vsRobot-functions.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="1vsRobot-functions.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="menu.h" />
+		<Unit filename="register-login-functions.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="register-login-functions.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
