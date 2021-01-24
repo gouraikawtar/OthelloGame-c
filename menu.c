@@ -1,0 +1,3 @@
+/**
+* Game menus functions implementation
+*/
