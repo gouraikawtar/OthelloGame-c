@@ -5,8 +5,10 @@
 #include <ncurses.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
 #include "1vs1-functions.h"
 #define N 8
+#define N_PATH 50
 
 int** initBoard(int** board)
 {
@@ -444,4 +446,59 @@ void displayWinner(int** board)
         printw("Player 1 = %d / Player 2 = %d\nBoth players won!\n",black, white);
 
     refresh();
+}
+
+int savePlayer_sPosition(int x, int y, int current_player, char *file_name)
+{
+    char *path = NULL;
+    int saved = 0;
+    movement mvt;
+    FILE *my_file = NULL;
+
+    // Setting our file's path
+    path = malloc(N_PATH*sizeof(char));
+    strcpy(path,"D:\\game_files\\");
+    strcat(path,file_name);
+    // Setting our mvt variable
+    mvt.pos_x = x;
+    mvt.pos_y = y;
+    mvt.player = current_player;
+    // Open file and save movement
+    my_file = fopen(path,"ab+");
+    if(my_file != NULL)
+    {
+        fwrite(&mvt,sizeof(movement),1,my_file);
+        saved = 1;
+        fclose(my_file);
+    }
+    free(path);
+    return saved;
+}
+
+int** setSavedGame(int **board, int *next_player, char *file_name)
+{
+    char *path = NULL;
+    movement mvt;
+    FILE *my_file = NULL;
+
+    // Setting our file's path
+    path = malloc(N_PATH*sizeof(char));
+    strcpy(path,"D:\\game_files\\");
+    strcat(path,file_name);
+    // Open file and get movements
+    my_file = fopen(path,"ab+");
+    if(my_file != NULL)
+    {
+        while(!feof(my_file))
+        {
+            // Reads movement from file
+            fread(&mvt,sizeof(movement),1,my_file);
+            // Sets movement on the game board
+            board = changeColor(board,mvt.player,mvt.pos_x,mvt.pos_y);
+        }
+        *next_player = (mvt.player%2)+1;
+        fclose(my_file);
+    }
+    free(path);
+    return board;
 }

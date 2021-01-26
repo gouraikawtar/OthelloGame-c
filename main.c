@@ -14,7 +14,7 @@ int main()
 
     /****************************** 1 vs 1 mode test ********************************/
 
-    int **othello_b = NULL;
+    /*int **othello_b = NULL;
     int pos_x, pos_y;
     int player = 1;
     ///Initialize board
@@ -34,10 +34,24 @@ int main()
     ///Display winner when the game is over
     displayWinner(othello_b);
     ///Destroy board and free memory
-    destroyBoard(othello_b);
+    destroyBoard(othello_b);*/
 
     getch();
     endwin();
 
     return 0;
 }
+
+/*int x = 5;
+    int y = 2;
+    int p = 1;
+    savePlayer_sPosition(x,y,p,"username2.bin");*/
+
+    /*int **othello_b = NULL;
+    int player = 1;
+    ///Initialize board
+    othello_b = initBoard(othello_b);
+    othello_b = getPlayer_sPosition(othello_b,&player,"username2.bin");
+    displayBoard(othello_b);
+    printw("next player = %d \n",player);
+    destroyBoard(othello_b);*/

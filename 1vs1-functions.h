@@ -1,6 +1,15 @@
 /**
 * Player vs Player functions headers
 */
+/*************************** Structures ********************************/
+
+typedef struct _movement{
+    int pos_x;
+    int pos_y;
+    int player;
+}movement;
+
+/*************************** Functions ********************************/
 
 /// Initializes the board array by 0 if empty, 1 if black & 2 if white
 int** initBoard(int** board);
@@ -25,4 +34,7 @@ int play(int** board, int current_player);
 int gameOver(int** board);
 /// Displays the final score and winner
 void displayWinner(int** board);
-
+/// Saves player's position
+int savePlayer_sPosition(int x, int y, int current_player, char *file_name);
+/// Sets saved undone game
+int** setSavedGame(int **board, int *next_player, char *file_name);
