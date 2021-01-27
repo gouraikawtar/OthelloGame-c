@@ -1,6 +1,7 @@
 #include <ncurses.h>
 #include <stdlib.h>
 #include "1vs1-functions.h"
+#include "menu.h"
 
 int main()
 {
@@ -10,6 +11,14 @@ int main()
 
     /****************************** Menu test ********************************/
 
+    /*int click;
+    //click = gameOptionsMenu();
+    //click = afterAuthMenu();
+    click = modesMenu();
+    clear();
+    printw("click = %d\n",click);
+
+    refresh();*/
     //beforeAuthMenu();
 
     /****************************** 1 vs 1 mode test ********************************/
