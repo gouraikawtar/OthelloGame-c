@@ -14,8 +14,22 @@ int main()
 
 
     /****************************** 1 vs 1 mode test ********************************/
+    int accessTest = 0 ;
+    User currentUser ;
+    currentUser = access(&accessTest);
+    if (accessTest==1)
+    {
+      clear();
+      playFirstMode();
+    }
 
-    playFirstMode();
+    else
+    {
+        clear();
+        move(3,40);
+        printw("We couldn't access this account , please exit and try again !");
+    }
+
 
     getch();
     endwin();

@@ -23,8 +23,6 @@ int LoginMenu()
     box(menu_win,0,0);
     wrefresh(menu_win);
 
-    // makes cursor invisible
-    curs_set(0);
 
     // prints menu's options
     wprintw(menu_win," Welcome to OTHELLO ");
@@ -313,4 +311,3 @@ int exitGameMenu()
     // returns index of the chosen option
     return highlight;
 }
->>>>>>> c6f426a6023791d60a57a890d46a41875f91685d

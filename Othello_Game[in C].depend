@@ -53,33 +53,37 @@
 
 1611832312 d:\projets_c\othello_game[in c]\menu.h
 
-1611838130 source:c:\users\zineb thoum\desktop\othellogame-c\main.c
+1611868668 source:c:\users\zineb thoum\desktop\othellogame-c\main.c
 	<ncurses.h>
 	<stdlib.h>
 	"register-login-functions.h"
+	"1vs1-functions.h"
+	"menu.h"
 
-1611824777 c:\users\zineb thoum\desktop\othellogame-c\1vs1-functions.h
+1611839687 c:\users\zineb thoum\desktop\othellogame-c\1vs1-functions.h
 
-1611824777 source:c:\users\zineb thoum\desktop\othellogame-c\1vs1-functions.c
+1611839687 source:c:\users\zineb thoum\desktop\othellogame-c\1vs1-functions.c
 	<ncurses.h>
 	<stdlib.h>
 	<ctype.h>
+	<string.h>
 	"1vs1-functions.h"
+	"menu.h"
 
 1611824777 source:c:\users\zineb thoum\desktop\othellogame-c\1vsrobot-functions.c
 
-1611837897 source:c:\users\zineb thoum\desktop\othellogame-c\menu.c
+1611840162 source:c:\users\zineb thoum\desktop\othellogame-c\menu.c
 	<ncurses.h>
 	<stdlib.h>
 	"menu.h"
 
-1611838065 source:c:\users\zineb thoum\desktop\othellogame-c\register-login-functions.c
+1611870167 source:c:\users\zineb thoum\desktop\othellogame-c\register-login-functions.c
 	<ncurses.h>
 	<stdlib.h>
 	<string.h>
 	"register-login-functions.h"
 
-1611834116 c:\users\zineb thoum\desktop\othellogame-c\menu.h
+1611839774 c:\users\zineb thoum\desktop\othellogame-c\menu.h
 
-1611837990 c:\users\zineb thoum\desktop\othellogame-c\register-login-functions.h
+1611869117 c:\users\zineb thoum\desktop\othellogame-c\register-login-functions.h
 
