@@ -15,3 +15,5 @@ int gameOptionsMenu();
 int afterAuthMenu();
 //
 int modesMenu();
+//
+int exitGameMenu();

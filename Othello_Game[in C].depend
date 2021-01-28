@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1611702758 source:d:\projets_c\othello_game[in c]\1vs1-functions.c
+1611833783 source:d:\projets_c\othello_game[in c]\1vs1-functions.c
 	<ncurses.h>
 	<stdlib.h>
 	<ctype.h>
 	<string.h>
 	"1vs1-functions.h"
+	"menu.h"
 
 1610849163 c:\ncurses\include\ncursesw\ncurses.h
 	<ncursesw/ncurses_dll.h>
@@ -33,22 +34,22 @@
 	<wchar.h>
 	<ncursesw/unctrl.h>
 
-1611702742 d:\projets_c\othello_game[in c]\1vs1-functions.h
+1611833704 d:\projets_c\othello_game[in c]\1vs1-functions.h
 
 1611453689 source:d:\projets_c\othello_game[in c]\1vsrobot-functions.c
 
-1611709798 source:d:\projets_c\othello_game[in c]\menu.c
+1611832279 source:d:\projets_c\othello_game[in c]\menu.c
 	<ncurses.h>
 	<stdlib.h>
 	"menu.h"
 
 1611453568 source:d:\projets_c\othello_game[in c]\register-login-functions.c
 
-1611709773 source:d:\projets_c\othello_game[in c]\main.c
+1611834205 source:d:\projets_c\othello_game[in c]\main.c
 	<ncurses.h>
 	<stdlib.h>
 	"1vs1-functions.h"
 	"menu.h"
 
-1611709758 d:\projets_c\othello_game[in c]\menu.h
+1611832312 d:\projets_c\othello_game[in c]\menu.h
 

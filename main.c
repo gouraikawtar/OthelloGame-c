@@ -44,6 +44,7 @@ int main()
     displayWinner(othello_b);
     ///Destroy board and free memory
     destroyBoard(othello_b);*/
+    playFirstMode();
 
     getch();
     endwin();

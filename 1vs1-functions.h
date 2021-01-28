@@ -38,3 +38,7 @@ void displayWinner(int** board);
 int savePlayer_sPosition(int x, int y, int current_player, char *file_name);
 /// Sets saved undone game
 int** setSavedGame(int **board, int *next_player, char *file_name);
+///
+int destroyFile(char *file_name);
+///
+void playFirstMode();
