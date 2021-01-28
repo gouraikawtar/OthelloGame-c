@@ -5,7 +5,7 @@
 	<ctype.h>
 	"1vs1-functions.h"
 
-1610849163 c:\ncurses\include\ncursesw\ncurses.h
+1610846003 c:\ncurses\include\ncursesw\ncurses.h
 	<ncursesw/ncurses_dll.h>
 	<stdint.h>
 	<stdio.h>
@@ -16,12 +16,12 @@
 	<wchar.h>
 	<ncursesw/unctrl.h>
 
-1610849163 c:\ncurses\include\ncursesw\ncurses_dll.h
+1610846003 c:\ncurses\include\ncursesw\ncurses_dll.h
 
-1610849163 c:\ncurses\include\ncursesw\unctrl.h
+1610846003 c:\ncurses\include\ncursesw\unctrl.h
 	<ncursesw/curses.h>
 
-1610849163 c:\ncurses\include\ncursesw\curses.h
+1610846003 c:\ncurses\include\ncursesw\curses.h
 	<ncursesw/ncurses_dll.h>
 	<stdint.h>
 	<stdio.h>
@@ -44,4 +44,34 @@
 	<ncurses.h>
 	<stdlib.h>
 	"1vs1-functions.h"
+
+1611838130 source:c:\users\zineb thoum\desktop\othellogame-c\main.c
+	<ncurses.h>
+	<stdlib.h>
+	"register-login-functions.h"
+
+1611824777 c:\users\zineb thoum\desktop\othellogame-c\1vs1-functions.h
+
+1611824777 source:c:\users\zineb thoum\desktop\othellogame-c\1vs1-functions.c
+	<ncurses.h>
+	<stdlib.h>
+	<ctype.h>
+	"1vs1-functions.h"
+
+1611824777 source:c:\users\zineb thoum\desktop\othellogame-c\1vsrobot-functions.c
+
+1611837897 source:c:\users\zineb thoum\desktop\othellogame-c\menu.c
+	<ncurses.h>
+	<stdlib.h>
+	"menu.h"
+
+1611838065 source:c:\users\zineb thoum\desktop\othellogame-c\register-login-functions.c
+	<ncurses.h>
+	<stdlib.h>
+	<string.h>
+	"register-login-functions.h"
+
+1611834116 c:\users\zineb thoum\desktop\othellogame-c\menu.h
+
+1611837990 c:\users\zineb thoum\desktop\othellogame-c\register-login-functions.h
 

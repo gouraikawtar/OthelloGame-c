@@ -1,6 +1,7 @@
 #include <ncurses.h>
 #include <stdlib.h>
-#include "1vs1-functions.h"
+//#include "1vs1-functions.h"
+#include "register-login-functions.h"
 
 int main()
 {
@@ -14,7 +15,7 @@ int main()
 
     /****************************** 1 vs 1 mode test ********************************/
 
-    int **othello_b = NULL;
+    /*int **othello_b = NULL;
     int pos_x, pos_y;
     int player = 1;
     ///Initialize board
@@ -34,7 +35,7 @@ int main()
     ///Display winner when the game is over
     displayWinner(othello_b);
     ///Destroy board and free memory
-    destroyBoard(othello_b);
+    destroyBoard(othello_b);*/
 
     getch();
     endwin();
