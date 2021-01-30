@@ -64,17 +64,17 @@ User sign_up(int * accessTest)
      fflush(stdin);
      scanw("%s" ,newUser.firstName);
      printw("\n     Enter Last Name: ");
-     scanw("%s", newUser.lastName);
-     printw("\n     Enter Username:");
+     scanw("%s",newUser.lastName);
+     printw("\n     Enter Username: ");
      scanw("%s",newUser.userName);
      /// The user can not choose an existing username , he keeps entering until he choose an unique user name
            while(userNameSearch(newUser.userName)==1)
     {
         printw("\n     User name already exist please enter another one !\n");
-        printw("\n     Enter Username:");
+        printw("\n     Enter Username: ");
         scanw("%s",newUser.userName);
     }
-     printw("\n     Enter Password:");
+     printw("\n     Enter Password: ");
      scanw("%s",newUser.password);
      newUser.score = 0;
      users=fopen(".\\game_files\\users.bin","ab+");

@@ -3,8 +3,13 @@
 #include "register-login-functions.h"
 #include "1vs1-functions.h"
 #include "menu.h"
+#include "1vsRobot-functions.h"
+#include <time.h>
+#define N 8
+
 
 int main()
+
 {
     /// initializes the screen
     /// sets up memory and clears the screen
@@ -12,15 +17,31 @@ int main()
 
     /****************************** Menu test ********************************/
 
+    /****************************** 1 vs Robot mode  test - Random  ********************************/
+
 
     /****************************** 1 vs 1 mode test ********************************/
-    int accessTest = 0 ;
+    int accessTest = 0 , mode , robotMode ;
     User currentUser ;
     currentUser = access(&accessTest);
     if (accessTest==1)
     {
       clear();
-      playFirstMode();
+      switch(modesMenu())
+      {
+      case 0 :
+        playFirstMode();
+        break;
+      case 1 :
+          switch(_1vsRobotMenu())
+          {
+          case 0 :
+              playVsRobot_Easy();
+
+          }
+
+      }
+
     }
 
     else
@@ -50,3 +71,8 @@ int main()
     displayBoard(othello_b);
     printw("next player = %d \n",player);
     destroyBoard(othello_b);*/
+
+
+    /****************************** 1 vs Robot test - Random  ********************************/
+
+
