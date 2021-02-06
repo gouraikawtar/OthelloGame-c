@@ -1,9 +1,15 @@
 #include <ncurses.h>
 #include <stdlib.h>
+#include "register-login-functions.h"
 #include "1vs1-functions.h"
 #include "menu.h"
+#include "1vsRobot-functions.h"
+#include <time.h>
+#define N 8
+
 
 int main()
+
 {
     /// initializes the screen
     /// sets up memory and clears the screen
@@ -11,40 +17,40 @@ int main()
 
     /****************************** Menu test ********************************/
 
-    /*int click;
-    //click = gameOptionsMenu();
-    //click = afterAuthMenu();
-    click = modesMenu();
-    clear();
-    printw("click = %d\n",click);
+    /****************************** 1 vs Robot mode  test - Random  ********************************/
 
-    refresh();*/
-    //beforeAuthMenu();
 
     /****************************** 1 vs 1 mode test ********************************/
-
-    /*int **othello_b = NULL;
-    int pos_x, pos_y;
-    int player = 1;
-    ///Initialize board
-    othello_b = initBoard(othello_b);
-    //displayBoard(othello_b);
-    //validTry(othello_b,player,&pos_x,&pos_y);
-    ///Play game
-    while(!gameOver(othello_b))
+    int accessTest = 0 , mode , robotMode ;
+    User currentUser ;
+    currentUser = access(&accessTest);
+    if (accessTest==1)
     {
-        displayBoard(othello_b);
-        validTry(othello_b,player,&pos_x,&pos_y);
-        othello_b = changeColor(othello_b,player,pos_x,pos_y);
-        if(play(othello_b,player%2+1))
-            player = player%2+1;
-        clear();
+      clear();
+      switch(modesMenu())
+      {
+      case 0 :
+        playFirstMode();
+        break;
+      case 1 :
+          switch(_1vsRobotMenu())
+          {
+          case 0 :
+              playVsRobot_Easy();
+
+          }
+
+      }
+
     }
-    ///Display winner when the game is over
-    displayWinner(othello_b);
-    ///Destroy board and free memory
-    destroyBoard(othello_b);*/
-    playFirstMode();
+
+    else
+    {
+        clear();
+        move(3,40);
+        printw("We couldn't access this account , please exit and try again !");
+    }
+
 
     getch();
     endwin();
@@ -65,3 +71,8 @@ int main()
     displayBoard(othello_b);
     printw("next player = %d \n",player);
     destroyBoard(othello_b);*/
+
+
+    /****************************** 1 vs Robot test - Random  ********************************/
+
+

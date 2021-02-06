@@ -36,7 +36,13 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add directory="C:/ncurses/include" />
+			<Add directory="C:/ncurses/include/ncursesw" />
 		</Compiler>
+		<Linker>
+			<Add option="-lmingw32 -lncursesw" />
+			<Add directory="C:/ncurses/lib" />
+		</Linker>
 		<Unit filename="1vs1-functions.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -56,10 +62,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="register-login-functions.h" />
-		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
-		</Extensions>
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

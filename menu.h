@@ -16,4 +16,8 @@ int afterAuthMenu();
 //
 int modesMenu();
 //
+int _1vsRobotMenu();
+//
 int exitGameMenu();
+//
+int LoginMenu();
