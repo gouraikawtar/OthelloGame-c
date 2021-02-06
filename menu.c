@@ -62,6 +62,7 @@ int gameOptionsMenu()
         if(choice == 10) // enter key is clicked
             break;
     }
+    delwin(menu_win);
     // returns index of the chosen option
     return highlight;
         //mvwprintw(stdscr,0,0,"Your choice was %s",menu[highlight].option);
@@ -125,6 +126,7 @@ int afterAuthMenu()
         if(choice == 10) // enter key is clicked
             break;
     }
+    delwin(menu_win);
     // returns index of the chosen option
     return highlight;
 }
@@ -186,6 +188,7 @@ int modesMenu()
         if(choice == 10) // enter key is clicked
             break;
     }
+    delwin(menu_win);
     // returns index of the chosen option
     return highlight;
 }
@@ -248,6 +251,7 @@ int exitGameMenu()
         if(choice == 10) // enter key is clicked
             break;
     }
+    delwin(menu_win);
     // returns index of the chosen option
     return highlight;
 }
