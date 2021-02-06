@@ -21,7 +21,7 @@ int main()
 
 
     /****************************** 1 vs 1 mode test ********************************/
-    int accessTest = 0 , mode , robotMode ;
+    int accessTest = 0  ;
     User currentUser ;
     currentUser = access(&accessTest);
     if (accessTest==1)
@@ -37,6 +37,10 @@ int main()
           {
           case 0 :
               playVsRobot_Easy();
+              break;
+          case 1 :
+              playVsRobot_Hard();
+              break;
 
           }
 
@@ -57,6 +61,8 @@ int main()
 
     return 0;
 }
+
+
 
 /*int x = 5;
     int y = 2;
