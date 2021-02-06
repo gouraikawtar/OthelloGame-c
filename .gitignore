@@ -52,5 +52,5 @@ Mkfile.old
 dkms.conf
 
 # My directories
-./game_files
-./libncursesw6.dll
+game_files
+libncursesw6.dll
