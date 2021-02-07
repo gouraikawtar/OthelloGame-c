@@ -59,7 +59,7 @@ void playVsRobot_Easy(int **game_board, User *my_player)
         switch(choice)
         {
             case 10:    // Enter key pressed
-                validTry(game_board,player,&pos_x,&pos_y);
+                //validTry(game_board,player,&pos_x,&pos_y);
                 savePlayer_sPosition(pos_x,pos_y,player,my_player->userName);
                 game_board = changeColor(game_board,player,pos_x,pos_y);
                 if(play(game_board,player%2+1))

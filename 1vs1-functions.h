@@ -25,7 +25,7 @@ int validPosition(int x, int y);
 returns 1 if at least one test is valid & 0 if the position is invalid or not empty or none of the tests is valid*/
 int directionsTestPassed(int **board, int current_player, int x, int y);
 /// Asks the current player to choose a position and tests if it's correct or not using the function directionsTestPassed()
-void validTry(int **board, int current_player, int *x, int *y);
+void validTry(int **board, int current_player, int *x, int *y, Queue **q);
 /// Changes the pawns color to the current player's color
 int** changeColor(int **board, int current_player, int x, int y);
 /// Checks if the player can play his turn or not

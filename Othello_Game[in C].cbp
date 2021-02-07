@@ -51,9 +51,14 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="1vsRobot-functions.h" />
+		<Unit filename="game.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="main.h" />
 		<Unit filename="menu.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -62,6 +67,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="register-login-functions.h" />
-		<Extensions />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

@@ -18,6 +18,12 @@ int main()
     othello_b = initBoard(othello_b);
     othello_b = setSavedGame(othello_b,&player,"kawtar");
     displayBoard(othello_b);*/
+    /*Queue *q = createQueue();
+    enQueue(q,'c',4,1);
+    enQueue(q,'d',1,2);
+    displayQueue(q);*/
+
+
     game();
     /*User u;
     u = authentication();

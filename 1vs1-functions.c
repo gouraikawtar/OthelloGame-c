@@ -228,14 +228,15 @@ int directionsTestPassed(int **board, int current_player, int x, int y)
         *y = (*y)-1;
     }
 }*/
-void validTry(int **board, int current_player, int *x, int *y)
+void validTry(int **board, int current_player, int *x, int *y, Queue **q)
 {
-    char c;
-    int l, ic;
+    char col, c;
+    int line, l, ic;
 
     ///the player choose a position: c for column and l for line
     printw("Player %d\n\tChoose your position (example e4): ",current_player);
     scanw("%c%d",&c,&l);
+    col = c; line = l;
     ///conversion from uppercase to lowercase
     if(c >= 'A' && c <= 'H')
         c = (char)tolower(c);
@@ -252,6 +253,7 @@ void validTry(int **board, int current_player, int *x, int *y)
         ///while the chosen position is invalid, the player keeps trying
         printw("Player %d\n\tInvalid position! Please choose another one (example e4): ", current_player);
         scanw("%c%d",&c,&l);
+        col = c; line = l;
         if(c >= 'A' && c <= 'H')
             c = (char)tolower(c);
         c = c-49;
@@ -260,7 +262,7 @@ void validTry(int **board, int current_player, int *x, int *y)
 
         //while ((getchar()) != '\n');
     }
-    q
+    enQueue(*q,col,line,current_player);
     refresh();
 }
 
@@ -543,32 +545,47 @@ int fileExist(char username[20])
 
 }
 
+/*User* getBest10Scores()
+{
+    User *tab = NULL;
+    User u;
+    FILE *f_users = NULL;
+    int score;
+    char username[20];
+
+    tab = malloc(T_MAX*sizeof(User));
+    f_users = fopen("")
+
+
+}*/
+
 void playFirstMode(int **game_board, User *my_player)
 {
-    int pos_x, pos_y;
+    int pos_x, pos_y;   // Pawn's position
     int player; // player's pawn color
-    int choice;
-    //Queue *q;
+    int choice; // player's choice (ENTER KEY or ESC KEY)
+    Queue *q;   // Movements queue (to show 10 last movements made by the players)
 
 
     // Initialize game
-    game_board = initBoard(game_board);
-    player = 1;
-    //q = createQueue();
+    game_board = initBoard(game_board); // Allocates memory for board, and set initial positions
+    player = 1; //  Set turn to 1 (==color to BLACK)
+    q = createQueue();  // Create positions queue
     // Start game
     while(!gameOver(game_board))
     {
         displayBoard(game_board);
+        displayQueue(q);
         printw("Player %d | Press Enter to play or Esc for game options: ",player);
         choice = getch();
         switch(choice)
         {
             case 10:    // Enter key pressed
-                validTry(game_board,player,&pos_x,&pos_y);
+                validTry(game_board,player,&pos_x,&pos_y,&q);
                 savePlayer_sPosition(pos_x,pos_y,player,my_player->userName);
                 game_board = changeColor(game_board,player,pos_x,pos_y);
-                if(play(game_board,player%2+1))
-                    player = player%2+1;
+                if(play(game_board,player%2+1)) // The next player can play
+                    player = player%2+1;    // The turn is now for next player if he can plays
                 clear();
                 break;
             case 27:    // Esc key pressed
@@ -580,8 +597,8 @@ void playFirstMode(int **game_board, User *my_player)
                         break;
                     case 1: // Restart
                         clear();
-                        game_board = initBoard(game_board);
-                        player = 1;
+                        game_board = initBoard(game_board); // Reset board
+                        player = 1; // Reset turn to 1
                         break;
                     case 2: // Exit
                         clear();
@@ -625,10 +642,12 @@ void playSavedGame(int **game_board, User *my_player)
     int pos_x, pos_y;
     int player;
     int choice;
+    Queue *q;
 
     // initialize game
-    game_board = initBoard(game_board);
-    game_board = setSavedGame(game_board,&player,my_player->userName);
+    game_board = initBoard(game_board); // Set initial positions on board
+    game_board = setSavedGame(game_board,&player,my_player->userName);  // Set saved game
+    q = createQueue();
 
     // Start game
     while(!gameOver(game_board))
@@ -639,11 +658,11 @@ void playSavedGame(int **game_board, User *my_player)
         switch(choice)
         {
             case 10:    // Enter key pressed
-                validTry(game_board,player,&pos_x,&pos_y);
+                validTry(game_board,player,&pos_x,&pos_y,&q);
                 savePlayer_sPosition(pos_x,pos_y,player,my_player->userName);
                 game_board = changeColor(game_board,player,pos_x,pos_y);
-                if(play(game_board,player%2+1))
-                    player = player%2+1;
+                if(play(game_board,player%2+1)) // The next player can play
+                    player = player%2+1;    // The turn is now for next player if he can plays
                 clear();
                 break;
             case 27:    // Esc key pressed
@@ -655,8 +674,8 @@ void playSavedGame(int **game_board, User *my_player)
                         break;
                     case 1: // Restart
                         clear();
-                        game_board = initBoard(game_board);
-                        player = 1;
+                        game_board = initBoard(game_board); // Reset board
+                        player = 1; // Reset turn to 1
                         break;
                     case 2: // Exit
                         clear();

@@ -77,15 +77,25 @@ void enQueue(Queue* q, char c, int l,int current_player)
 void displayQueue(Queue *q)
 {
     qnode *ptr;
+    int y;
+    WINDOW *q_wind = newwin(15,25,2,70);
+    refresh();
+    box(q_wind,0,0);
+    wrefresh(q_wind);
+    wprintw(q_wind," Last movements ");
+    y = 2;
     if(queueSize(q) != 0)
     {
         ptr = q->q_front;
         while(ptr != NULL)
         {
-            printw("Player %d : %c%d\n",ptr->player,ptr->c,ptr->l);
+            mvwprintw(q_wind,y++,2,"Player %d : %c%d",ptr->player,ptr->c,ptr->l);
             ptr = ptr->next;
         }
     }
+    else
+        mvwprintw(q_wind,y++,2,"No movements yet");
+    wrefresh(q_wind);
 }
 
 void game()
