@@ -260,7 +260,7 @@ void validTry(int **board, int current_player, int *x, int *y)
 
         //while ((getchar()) != '\n');
     }
-
+    q
     refresh();
 }
 
@@ -548,11 +548,13 @@ void playFirstMode(int **game_board, User *my_player)
     int pos_x, pos_y;
     int player; // player's pawn color
     int choice;
+    //Queue *q;
 
 
     // Initialize game
     game_board = initBoard(game_board);
     player = 1;
+    //q = createQueue();
     // Start game
     while(!gameOver(game_board))
     {
