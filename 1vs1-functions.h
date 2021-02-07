@@ -32,13 +32,19 @@ int** changeColor(int **board, int current_player, int x, int y);
 int play(int** board, int current_player);
 /// Checks if the game is over or not
 int gameOver(int** board);
+/// Sets player's score
+void setScore(User *my_player, int new_score);
 /// Displays the final score and winner
-void displayWinner(int** board);
+void displayWinner(int** board, User *my_player);
 /// Saves player's position
-int savePlayer_sPosition(int x, int y, int current_player, char *file_name);
+int savePlayer_sPosition(int x, int y, int current_player, char username[20]);
 /// Sets saved undone game
-int** setSavedGame(int **board, int *next_player, char *file_name);
-///
-int destroyFile(char *file_name);
-///
-void playFirstMode();
+int** setSavedGame(int **board, int *next_player, char username[20]);
+/// Destroys created file
+int destroyFile(char username[20]);
+/// Checks if a file exists or no
+int fileExist(char username[20]);
+/// Plays 1vs1 mode
+void playFirstMode(int **game_board, User *my_player);
+/// Plays saved game
+void playSavedGame(int **game_board, User *my_player);

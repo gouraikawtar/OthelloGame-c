@@ -1,15 +1,8 @@
 /**
 * Player vs Player functions implementation
 */
-
-#include <ncurses.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
-#include "1vs1-functions.h"
-#include "menu.h"
-#define N 8
-#define N_PATH 50
+#include "main.h"
+///
 
 int** initBoard(int** board)
 {
@@ -434,12 +427,19 @@ int gameOver(int** board)
     return 1;
 }
 
-void displayWinner(int** board)
+void setScore(User *my_player, int new_score)
+{
+    if(new_score > my_player->score)
+        my_player->score = new_score;
+}
+
+void displayWinner(int** board, User *my_player)
 {
     int black = 0, white = 0;
 
     black = countColor(1,board);
     white = countColor(2,board);
+    setScore(my_player,black);
     printw("********************* GAME OVER *********************\n");
     displayBoard(board);
     if(black > white)
@@ -452,7 +452,7 @@ void displayWinner(int** board)
     refresh();
 }
 
-int savePlayer_sPosition(int x, int y, int current_player, char *file_name)
+int savePlayer_sPosition(int x, int y, int current_player, char username[20])
 {
     char *path = NULL;
     int saved = 0;
@@ -461,8 +461,9 @@ int savePlayer_sPosition(int x, int y, int current_player, char *file_name)
 
     // Setting our file's path
     path = malloc(N_PATH*sizeof(char));
-    strcpy(path,"D:\\game_files\\");
-    strcat(path,file_name);
+    strcpy(path,".\\game_files\\");
+    strcat(path,username);
+    strcat(path,".bin");
     // Setting our mvt variable
     mvt.pos_x = x;
     mvt.pos_y = y;
@@ -479,7 +480,7 @@ int savePlayer_sPosition(int x, int y, int current_player, char *file_name)
     return saved;
 }
 
-int** setSavedGame(int **board, int *next_player, char *file_name)
+int** setSavedGame(int **board, int *next_player, char username[20])
 {
     char *path = NULL;
     movement mvt;
@@ -487,10 +488,11 @@ int** setSavedGame(int **board, int *next_player, char *file_name)
 
     // Setting our file's path
     path = malloc(N_PATH*sizeof(char));
-    strcpy(path,"D:\\game_files\\");
-    strcat(path,file_name);
+    strcpy(path,".\\game_files\\");
+    strcat(path,username);
+    strcat(path,".bin");
     // Open file and get movements
-    my_file = fopen(path,"ab+");
+    my_file = fopen(path,"rb");
     if(my_file != NULL)
     {
         while(!feof(my_file))
@@ -507,14 +509,15 @@ int** setSavedGame(int **board, int *next_player, char *file_name)
     return board;
 }
 
-int destroyFile(char *file_name)
+int destroyFile(char username[20])
 {
     char *path = NULL;
     int removed = 0;
     // Setting our file's path
     path = malloc(N_PATH*sizeof(char));
-    strcpy(path,"D:\\game_files\\");
-    strcat(path,file_name);
+    strcpy(path,".\\game_files\\");
+    strcat(path,username);
+    strcat(path,".bin");
 
     removed = remove(path);
 
@@ -522,11 +525,28 @@ int destroyFile(char *file_name)
     return removed;
 }
 
-void playFirstMode()
+int fileExist(char username[20])
 {
-    int **game_board = NULL;
+    char *path = NULL;
+    FILE *file = NULL;
+    int exists = 0; // file does not exist
+    // Setting our file's path
+    path = malloc(N_PATH*sizeof(char));
+    strcpy(path,".\\game_files\\");
+    strcat(path,username);
+    strcat(path,".bin");
+    file = fopen(path,"rb");
+    if(file != NULL)
+        exists = 1; // file exists
+    fclose(file);
+    return exists;
+
+}
+
+void playFirstMode(int **game_board, User *my_player)
+{
     int pos_x, pos_y;
-    int player;
+    int player; // player's pawn color
     int choice;
 
 
@@ -543,7 +563,7 @@ void playFirstMode()
         {
             case 10:    // Enter key pressed
                 validTry(game_board,player,&pos_x,&pos_y);
-                savePlayer_sPosition(pos_x,pos_y,player,"username3.bin");
+                savePlayer_sPosition(pos_x,pos_y,player,my_player->userName);
                 game_board = changeColor(game_board,player,pos_x,pos_y);
                 if(play(game_board,player%2+1))
                     player = player%2+1;
@@ -573,7 +593,7 @@ void playFirstMode()
                                 break;
                             case 1: // No
                                 clear();
-                                destroyFile("username3.bin");
+                                destroyFile(my_player->userName);
                                 destroyBoard(game_board);
                                 game_board = NULL;
                                 break;
@@ -589,5 +609,86 @@ void playFirstMode()
     }
     // displays winner and final score
     if(game_board != NULL)
-        displayWinner(game_board);
+    {
+        displayWinner(game_board,my_player);
+        destroyBoard(game_board);
+        destroyFile(my_player->userName);
+        printw("Press any key to go back to main menu..");
+        getch();
+    }
+}
+
+void playSavedGame(int **game_board, User *my_player)
+{
+    int pos_x, pos_y;
+    int player;
+    int choice;
+
+    // initialize game
+    game_board = initBoard(game_board);
+    game_board = setSavedGame(game_board,&player,my_player->userName);
+
+    // Start game
+    while(!gameOver(game_board))
+    {
+        displayBoard(game_board);
+        printw("Player %d | Press Enter to play or Esc for game options: ",player);
+        choice = getch();
+        switch(choice)
+        {
+            case 10:    // Enter key pressed
+                validTry(game_board,player,&pos_x,&pos_y);
+                savePlayer_sPosition(pos_x,pos_y,player,my_player->userName);
+                game_board = changeColor(game_board,player,pos_x,pos_y);
+                if(play(game_board,player%2+1))
+                    player = player%2+1;
+                clear();
+                break;
+            case 27:    // Esc key pressed
+                clear();
+                switch(gameOptionsMenu())
+                {
+                    case 0: // Resume
+                        clear();
+                        break;
+                    case 1: // Restart
+                        clear();
+                        game_board = initBoard(game_board);
+                        player = 1;
+                        break;
+                    case 2: // Exit
+                        clear();
+                        switch(exitGameMenu())
+                        {
+                            case 0: // Yes
+                                clear();
+                                printw("Game saved successfully !\n");
+                                destroyBoard(game_board);
+                                game_board = NULL;
+                                break;
+                            case 1: // No
+                                clear();
+                                destroyFile(my_player->userName);
+                                destroyBoard(game_board);
+                                game_board = NULL;
+                                break;
+                        }
+                        break;
+                }
+                break;
+            default:    // Other key pressed
+                clear();
+                break;
+
+        }
+    }
+    // displays winner and final score
+    if(game_board != NULL)
+    {
+        displayWinner(game_board,my_player);
+        destroyBoard(game_board);
+        destroyFile(my_player->userName);
+        printw("Press any key to go back to main menu..");
+        getch();
+    }
 }

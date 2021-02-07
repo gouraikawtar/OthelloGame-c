@@ -1,19 +1,7 @@
 /**
 * Player vs Robot functions implementation
 */
-
-
-#include <time.h>
-#include <ncurses.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
-#include "1vs1-functions.h"
-#include "1vsRobot-functions.h"
-#include "menu.h"
-#define N 8
-#define N_PATH 50
-
+#include "main.h"
 
 /*************************** Easy Mode ********************************/
 position* legal_moves ( int player , int** board ,int* legalPosNmb)
@@ -52,9 +40,8 @@ position random_move (int player , int** board , int* legPosNmb)
     return r;
 }
 
-void playVsRobot_Easy ()
+void playVsRobot_Easy(int **game_board, User *my_player)
 {
-    int **game_board = NULL;
     int pos_x, pos_y;
     game_board = initBoard(game_board);
     int player=1;
@@ -73,7 +60,7 @@ void playVsRobot_Easy ()
         {
             case 10:    // Enter key pressed
                 validTry(game_board,player,&pos_x,&pos_y);
-                savePlayer_sPosition(pos_x,pos_y,player,"username3.bin");
+                savePlayer_sPosition(pos_x,pos_y,player,my_player->userName);
                 game_board = changeColor(game_board,player,pos_x,pos_y);
                 if(play(game_board,player%2+1))
                     player = player%2+1;
@@ -103,7 +90,7 @@ void playVsRobot_Easy ()
                                 break;
                             case 1: // No
                                 clear();
-                                destroyFile("username3.bin");
+                                destroyFile(my_player->userName);
                                 destroyBoard(game_board);
                                 game_board = NULL;
                                 break;
@@ -121,7 +108,7 @@ void playVsRobot_Easy ()
         if (player==2) //Player 2 = Robot
         {
             displayBoard(game_board);
-            printw("Robot turn | Press Enter to continue :");
+            printw("Robot | Press Enter to continue :");
             randomPosition = random_move (player , game_board, &legPosNb);
             game_board = changeColor(game_board,player,randomPosition.x,randomPosition.y);
 
@@ -133,10 +120,16 @@ void playVsRobot_Easy ()
 
         }
     }
-        if(game_board != NULL)
-        displayWinner(game_board);
-
+    if(game_board != NULL)
+    {
+        displayWinner(game_board,my_player);
+        destroyBoard(game_board);
+        destroyFile(my_player->userName);
+        printw("Press any key to go back to main menu..");
+        getch();
     }
+
+}
 
 
 

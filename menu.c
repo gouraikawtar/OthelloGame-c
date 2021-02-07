@@ -1,9 +1,7 @@
 /**
 * Game menus functions implementation
 */
-#include <ncurses.h>
-#include <stdlib.h>
-#include "menu.h"
+#include "main.h"
 
 int LoginMenu()
 {

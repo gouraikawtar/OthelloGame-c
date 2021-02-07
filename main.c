@@ -1,12 +1,4 @@
-#include <ncurses.h>
-#include <stdlib.h>
-#include "register-login-functions.h"
-#include "1vs1-functions.h"
-#include "menu.h"
-#include "1vsRobot-functions.h"
-#include <time.h>
-#define N 8
-
+#include "main.h"
 
 int main()
 
@@ -21,9 +13,20 @@ int main()
 
 
     /****************************** 1 vs 1 mode test ********************************/
-    int accessTest = 0 , mode , robotMode ;
+    /*int **othello_b = NULL;
+    int player;
+    othello_b = initBoard(othello_b);
+    othello_b = setSavedGame(othello_b,&player,"kawtar");
+    displayBoard(othello_b);*/
+    game();
+    /*User u;
+    u = authentication();
+    printw("Username = %s\n",u.userName);
+    refresh();*/
+    /*int accessTest = 0 , mode , robotMode ;
     User currentUser ;
     currentUser = access(&accessTest);
+    printw("%s",currentUser.userName);
     if (accessTest==1)
     {
       clear();
@@ -49,7 +52,7 @@ int main()
         clear();
         move(3,40);
         printw("We couldn't access this account , please exit and try again !");
-    }
+    }*/
 
 
     getch();

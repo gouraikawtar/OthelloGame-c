@@ -1,11 +1,6 @@
 # depslib dependency file v1.0
-1611836961 source:d:\projets_c\othello_game[in c]\1vs1-functions.c
-	<ncurses.h>
-	<stdlib.h>
-	<ctype.h>
-	<string.h>
-	"1vs1-functions.h"
-	"menu.h"
+1612663466 source:d:\projets_c\othello_game[in c]\1vs1-functions.c
+	"main.h"
 
 1610849163 c:\ncurses\include\ncursesw\ncurses.h
 	<ncursesw/ncurses_dll.h>
@@ -34,37 +29,19 @@
 	<wchar.h>
 	<ncursesw/unctrl.h>
 
-1611833704 d:\projets_c\othello_game[in c]\1vs1-functions.h
+1612663414 d:\projets_c\othello_game[in c]\1vs1-functions.h
 
-1612637217 source:d:\projets_c\othello_game[in c]\1vsrobot-functions.c
-	<time.h>
-	<ncurses.h>
-	<stdlib.h>
-	<ctype.h>
-	<string.h>
-	"1vs1-functions.h"
-	"1vsRobot-functions.h"
-	"menu.h"
+1612659599 source:d:\projets_c\othello_game[in c]\1vsrobot-functions.c
+	"main.h"
 
-1612637217 source:d:\projets_c\othello_game[in c]\menu.c
-	<ncurses.h>
-	<stdlib.h>
-	"menu.h"
+1612659648 source:d:\projets_c\othello_game[in c]\menu.c
+	"main.h"
 
-1612637217 source:d:\projets_c\othello_game[in c]\register-login-functions.c
-	<ncurses.h>
-	<stdlib.h>
-	<string.h>
-	"register-login-functions.h"
+1612659636 source:d:\projets_c\othello_game[in c]\register-login-functions.c
+	"main.h"
 
-1612637217 source:d:\projets_c\othello_game[in c]\main.c
-	<ncurses.h>
-	<stdlib.h>
-	"register-login-functions.h"
-	"1vs1-functions.h"
-	"menu.h"
-	"1vsRobot-functions.h"
-	<time.h>
+1612660912 source:d:\projets_c\othello_game[in c]\main.c
+	"main.h"
 
 1612637217 d:\projets_c\othello_game[in c]\menu.h
 
@@ -116,5 +93,24 @@
 
 1612637217 d:\projets_c\othello_game[in c]\1vsrobot-functions.h
 
-1612637217 d:\projets_c\othello_game[in c]\register-login-functions.h
+1612659187 d:\projets_c\othello_game[in c]\register-login-functions.h
+
+1612662113 source:d:\projets_c\othello_game[in c]\game.c
+	"main.h"
+
+1612640342 d:\projets_c\othello_game[in c]\game.h
+
+1612658389 d:\projets_c\othello_game[in c]\my-structs.h
+
+1612659581 d:\projets_c\othello_game[in c]\main.h
+	<ncurses.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<time.h>
+	"register-login-functions.h"
+	"1vs1-functions.h"
+	"1vsRobot-functions.h"
+	"menu.h"
+	"game.h"
 
