@@ -9,8 +9,8 @@
 #include <ctype.h>
 #include <time.h>
 /************************************ Headers ************************************/
-#include "game.h"
 #include "register-login-functions.h"
+#include "game.h"
 #include "1vs1-functions.h"
 #include "1vsRobot-functions.h"
 #include "menu.h"

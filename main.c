@@ -23,7 +23,7 @@ int main()
     enQueue(q,'d',1,2);
     displayQueue(q);*/
 
-
+    //getBest10Scores();
     game();
     /*User u;
     u = authentication();

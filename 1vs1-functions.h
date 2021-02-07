@@ -45,6 +45,6 @@ int destroyFile(char username[20]);
 /// Checks if a file exists or no
 int fileExist(char username[20]);
 /// Plays 1vs1 mode
-void playFirstMode(int **game_board, User *my_player);
+//void playFirstMode(int **game_board, User *my_player);
 /// Plays saved game
 void playSavedGame(int **game_board, User *my_player);

@@ -27,4 +27,12 @@ void enQueue(Queue* q, char c, int l, int current_player);
 /// Displays queue elements
 void displayQueue(Queue *q);
 ///
+//User* getBestScores();
+///
+//void setBestScores(User my_player);
+///
+//void displayBestScores(User *tab);
+///
+void playFirstMode(int **game_board, User *my_player);
+///
 void game();

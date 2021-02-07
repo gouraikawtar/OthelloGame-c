@@ -442,6 +442,7 @@ void displayWinner(int** board, User *my_player)
     black = countColor(1,board);
     white = countColor(2,board);
     setScore(my_player,black);
+
     printw("********************* GAME OVER *********************\n");
     displayBoard(board);
     if(black > white)
@@ -545,21 +546,57 @@ int fileExist(char username[20])
 
 }
 
-/*User* getBest10Scores()
+/*void getBest10Scores()
 {
-    User *tab = NULL;
+    User tab[T_MAX];
     User u;
     FILE *f_users = NULL;
-    int score;
+    int score, i, x, y;
     char username[20];
 
-    tab = malloc(T_MAX*sizeof(User));
-    f_users = fopen("")
+    score = 0;
+    strcpy(username,"");
 
+    f_users = fopen(".\\game_files\\users.bin","rb");
+    if(f_users != NULL)
+    {
+        fread(&u,sizeof(User),1,f_users);
+        tab[0] = u;
+        fclose(f_users);
+    }
 
+    for(i=1;i<T_MAX;i++)
+    {
+        f_users = fopen(".\\game_files\\users.bin","rb");
+        if(f_users != NULL)
+        {
+            while(!feof(f_users))
+            {
+                fread(&u,sizeof(User),1,f_users);
+                if(strcmp(u.userName,tab[i-1].userName) == 1)
+                {
+                    if(u.score >= tab[i-1].score)
+                    {
+                        score = u.score;
+                        strcpy(username,u.userName);
+                    }
+                }
+            }
+            fclose(f_users);
+        }
+        tab[i] = u;
+    }
+
+    y = 1;
+    for(i=0;i<T_MAX;i++)
+    {
+        mvprintw(y,1,"%s",tab[i].userName);
+        mvprintw(y,15,"%d",tab[i].score);
+        y++;
+    }
 }*/
 
-void playFirstMode(int **game_board, User *my_player)
+/*void playFirstMode(int **game_board, User *my_player)
 {
     int pos_x, pos_y;   // Pawn's position
     int player; // player's pawn color
@@ -636,7 +673,7 @@ void playFirstMode(int **game_board, User *my_player)
         getch();
     }
 }
-
+*/
 void playSavedGame(int **game_board, User *my_player)
 {
     int pos_x, pos_y;
