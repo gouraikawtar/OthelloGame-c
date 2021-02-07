@@ -40,12 +40,12 @@
 1612659636 source:d:\projets_c\othello_game[in c]\register-login-functions.c
 	"main.h"
 
-1612736820 source:d:\projets_c\othello_game[in c]\main.c
+1612737661 source:d:\projets_c\othello_game[in c]\main.c
 	"main.h"
 
 1612637217 d:\projets_c\othello_game[in c]\menu.h
 
-1612039662 source:c:\users\zineb thoum\desktop\othellogame-c\main.c
+1612646571 source:c:\users\zineb thoum\desktop\othellogame-c\main.c
 	<ncurses.h>
 	<stdlib.h>
 	"register-login-functions.h"
@@ -54,9 +54,9 @@
 	"1vsRobot-functions.h"
 	<time.h>
 
-1611839687 c:\users\zineb thoum\desktop\othellogame-c\1vs1-functions.h
+1612645683 c:\users\zineb thoum\desktop\othellogame-c\1vs1-functions.h
 
-1611839687 source:c:\users\zineb thoum\desktop\othellogame-c\1vs1-functions.c
+1612645683 source:c:\users\zineb thoum\desktop\othellogame-c\1vs1-functions.c
 	<ncurses.h>
 	<stdlib.h>
 	<ctype.h>
@@ -64,7 +64,7 @@
 	"1vs1-functions.h"
 	"menu.h"
 
-1612039662 source:c:\users\zineb thoum\desktop\othellogame-c\1vsrobot-functions.c
+1612646352 source:c:\users\zineb thoum\desktop\othellogame-c\1vsrobot-functions.c
 	<time.h>
 	<ncurses.h>
 	<stdlib.h>
@@ -74,28 +74,28 @@
 	"1vsRobot-functions.h"
 	"menu.h"
 
-1612039662 source:c:\users\zineb thoum\desktop\othellogame-c\menu.c
+1612645683 source:c:\users\zineb thoum\desktop\othellogame-c\menu.c
 	<ncurses.h>
 	<stdlib.h>
 	"menu.h"
 
-1611871720 source:c:\users\zineb thoum\desktop\othellogame-c\register-login-functions.c
+1612645683 source:c:\users\zineb thoum\desktop\othellogame-c\register-login-functions.c
 	<ncurses.h>
 	<stdlib.h>
 	<string.h>
 	"register-login-functions.h"
 
-1612039662 c:\users\zineb thoum\desktop\othellogame-c\menu.h
+1612645683 c:\users\zineb thoum\desktop\othellogame-c\menu.h
 
-1611871720 c:\users\zineb thoum\desktop\othellogame-c\register-login-functions.h
+1612645683 c:\users\zineb thoum\desktop\othellogame-c\register-login-functions.h
 
-1612039662 c:\users\zineb thoum\desktop\othellogame-c\1vsrobot-functions.h
+1612646008 c:\users\zineb thoum\desktop\othellogame-c\1vsrobot-functions.h
 
-1612637217 d:\projets_c\othello_game[in c]\1vsrobot-functions.h
+1612737611 d:\projets_c\othello_game[in c]\1vsrobot-functions.h
 
 1612659187 d:\projets_c\othello_game[in c]\register-login-functions.h
 
-1612717723 source:d:\projets_c\othello_game[in c]\game.c
+1612737308 source:d:\projets_c\othello_game[in c]\game.c
 	"main.h"
 
 1612736837 d:\projets_c\othello_game[in c]\game.h
