@@ -19,12 +19,14 @@ void game()
     int **game_board = NULL;
     int x_max, y_max;
     int start;
-    int *t_size;
 
     /// initializes the screen
     /// sets up memory and clears the screen
     initscr();
 
+    firstScreen();
+    getch();
+    clear();
     my_player = authentication(my_player);
 
     if(my_player != NULL)
@@ -32,7 +34,9 @@ void game()
         x_max = getmaxx(stdscr);
         y_max = getmaxy(stdscr);
         clear();
-        mvprintw(y_max/2,x_max/4,"Welcome to the game %s\n",my_player->userName);
+
+        mvprintw(y_max/2,x_max/4,"WELCOME TO THE GAME %s",my_player->userName);
+        mvprintw(y_max-2,x_max-40,"Press any key to continue..");
         refresh();
         getch();
         clear();
@@ -122,7 +126,9 @@ void game()
             case 3:
                 clear();
                 start = 0;
-                printw("Goodbye\n");
+                move(y_max/2,x_max/4);
+                printw("GOODBYE CHAMP!\n");
+                mvprintw(y_max-2,x_max-40,"Press any key to exit..");
                 refresh();
                 break;
             }

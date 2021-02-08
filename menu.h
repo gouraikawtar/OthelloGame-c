@@ -9,6 +9,7 @@ typedef struct _choice{
 }choice;
 
 /*********************************** Functions **************************************/
+void firstScreen();
 // Displays game options menu and returns chosen option
 int gameOptionsMenu();
 //

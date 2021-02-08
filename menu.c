@@ -3,6 +3,33 @@
 */
 #include "main.h"
 
+void firstScreen()
+{
+    int w_width, w_height;
+    int x, y;
+    struct tm* local;
+    time_t t = time(NULL);
+    local = localtime(&t);
+
+    w_width = 50;
+    w_height = 20;
+    y = (getmaxy(stdscr) - w_height)/2;
+    x = (getmaxx(stdscr) - w_width)/2;
+
+    WINDOW *win = newwin(w_height,w_width,y,x);
+    refresh();
+    // sets window's borders
+    box(win,0,0);
+    wrefresh(win);
+    mvwprintw(win,5,15,"WELCOME TO OTHELLO");
+    mvwprintw(win,10,13,"Made by : ZINEB & KAWTAR");
+    mvwprintw(win,15,13,"%s",asctime(local));
+    wrefresh(win);
+    move(getmaxy(stdscr)-2,getmaxx(stdscr)-40);
+    printw("Press any key to continue..");
+    refresh();
+}
+
 int LoginMenu()
 {
     // sets menu's options

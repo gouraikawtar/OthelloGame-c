@@ -590,16 +590,19 @@ void setBestScores(User my_player)
 void displayBestScores(User *tab)
 {
     int i, y;
-    mvprintw(0,5,"10 Best Scores");
-    mvprintw(1,1,"Username");
-    mvprintw(1,15,"Score");
-    y = 4;
+    mvprintw(5,10,"10 Best Scores");
+    mvprintw(6,5,"Username");
+    mvprintw(6,20,"Score");
+    y = 8;
     for(i=0;i<T_MAX;i++)
     {
-        mvprintw(y,1,"%s",tab[i].userName);
-        mvprintw(y,15,"%d",tab[i].score);
+        mvprintw(y,5,"%s",tab[i].userName);
+        mvprintw(y,20,"%d",tab[i].score);
         y++;
     }
+    move(getmaxy(stdscr)-2,getmaxx(stdscr)-40);
+    printw("Press any key to continue..");
+    refresh();
 }
 
 void displayWinner(int** board, User *my_player)

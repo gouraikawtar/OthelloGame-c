@@ -31,19 +31,19 @@
 
 1612751870 d:\projets_c\othello_game[in c]\1vs1-functions.h
 
-1612759680 source:d:\projets_c\othello_game[in c]\1vsrobot-functions.c
+1612760874 source:d:\projets_c\othello_game[in c]\1vsrobot-functions.c
 	"main.h"
 
-1612742845 source:d:\projets_c\othello_game[in c]\menu.c
+1612800355 source:d:\projets_c\othello_game[in c]\menu.c
 	"main.h"
 
-1612659636 source:d:\projets_c\othello_game[in c]\register-login-functions.c
+1612801612 source:d:\projets_c\othello_game[in c]\register-login-functions.c
 	"main.h"
 
-1612760661 source:d:\projets_c\othello_game[in c]\main.c
+1612800043 source:d:\projets_c\othello_game[in c]\main.c
 	"main.h"
 
-1612637217 d:\projets_c\othello_game[in c]\menu.h
+1612800013 d:\projets_c\othello_game[in c]\menu.h
 
 1612646571 source:c:\users\zineb thoum\desktop\othellogame-c\main.c
 	<ncurses.h>
@@ -95,10 +95,10 @@
 
 1612659187 d:\projets_c\othello_game[in c]\register-login-functions.h
 
-1612760630 source:d:\projets_c\othello_game[in c]\game.c
+1612801571 source:d:\projets_c\othello_game[in c]\game.c
 	"main.h"
 
-1612760643 d:\projets_c\othello_game[in c]\game.h
+1612760984 d:\projets_c\othello_game[in c]\game.h
 
 1612658389 d:\projets_c\othello_game[in c]\my-structs.h
 
