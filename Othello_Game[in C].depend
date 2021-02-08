@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1612736810 source:d:\projets_c\othello_game[in c]\1vs1-functions.c
+1612757465 source:d:\projets_c\othello_game[in c]\1vs1-functions.c
 	"main.h"
 
 1610849163 c:\ncurses\include\ncursesw\ncurses.h
@@ -29,18 +29,18 @@
 	<wchar.h>
 	<ncursesw/unctrl.h>
 
-1612736815 d:\projets_c\othello_game[in c]\1vs1-functions.h
+1612751870 d:\projets_c\othello_game[in c]\1vs1-functions.h
 
-1612716336 source:d:\projets_c\othello_game[in c]\1vsrobot-functions.c
+1612759680 source:d:\projets_c\othello_game[in c]\1vsrobot-functions.c
 	"main.h"
 
-1612659648 source:d:\projets_c\othello_game[in c]\menu.c
+1612742845 source:d:\projets_c\othello_game[in c]\menu.c
 	"main.h"
 
 1612659636 source:d:\projets_c\othello_game[in c]\register-login-functions.c
 	"main.h"
 
-1612737661 source:d:\projets_c\othello_game[in c]\main.c
+1612760661 source:d:\projets_c\othello_game[in c]\main.c
 	"main.h"
 
 1612637217 d:\projets_c\othello_game[in c]\menu.h
@@ -91,18 +91,18 @@
 
 1612646008 c:\users\zineb thoum\desktop\othellogame-c\1vsrobot-functions.h
 
-1612737611 d:\projets_c\othello_game[in c]\1vsrobot-functions.h
+1612743604 d:\projets_c\othello_game[in c]\1vsrobot-functions.h
 
 1612659187 d:\projets_c\othello_game[in c]\register-login-functions.h
 
-1612737308 source:d:\projets_c\othello_game[in c]\game.c
+1612760630 source:d:\projets_c\othello_game[in c]\game.c
 	"main.h"
 
-1612736837 d:\projets_c\othello_game[in c]\game.h
+1612760643 d:\projets_c\othello_game[in c]\game.h
 
 1612658389 d:\projets_c\othello_game[in c]\my-structs.h
 
-1612736874 d:\projets_c\othello_game[in c]\main.h
+1612756620 d:\projets_c\othello_game[in c]\main.h
 	<ncurses.h>
 	<stdlib.h>
 	<string.h>

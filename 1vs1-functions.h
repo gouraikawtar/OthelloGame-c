@@ -9,8 +9,35 @@ typedef struct _movement{
     int player;
 }movement;
 
+typedef struct _qnode{
+    char c; // column
+    int l;  //line
+    int player; //player's color
+    struct _qnode *next;
+}qnode;
+
+typedef struct Queue{
+    qnode *q_front;
+    qnode *q_rear;
+}Queue;
+
 /*************************** Functions ********************************/
 
+/*************************** Movements queue logic ********************/
+/// Creates new node
+qnode* newNode(char c, int l,int current_player);
+/// Creates empty queue
+Queue* createQueue();
+/// Gets queue size
+int queueSize(Queue* q);
+/// Deletes element from queue
+void deQueue(Queue* q);
+/// Adds elements to queue
+void enQueue(Queue* q, char c, int l, int current_player);
+/// Displays queue elements
+void displayQueue(Queue *q);
+
+/************************** Game's logic ****************************/
 /// Initializes the board array by 0 if empty, 1 if black & 2 if white
 int** initBoard(int** board);
 /// Displays the board
@@ -32,19 +59,32 @@ int** changeColor(int **board, int current_player, int x, int y);
 int play(int** board, int current_player);
 /// Checks if the game is over or not
 int gameOver(int** board);
+
+/********************************* Scoring logic **************************************/
+
 /// Sets player's score
-void setScore(User *my_player, int new_score);
+User* setScore(User *my_player, int new_score);
+///
+User* getBestScores();
+///
+void setBestScores(User my_player);
+///
+void displayBestScores(User *tab);
 /// Displays the final score and winner
 void displayWinner(int** board, User *my_player);
+
+/*********************************** Reset saved game's logic ****************************/
+
 /// Saves player's position
-int savePlayer_sPosition(int x, int y, int current_player, char username[20]);
+int savePlayer_sPosition(int x, int y, int current_player, char username[20],int mode);
 /// Sets saved undone game
-int** setSavedGame(int **board, int *next_player, char username[20]);
+int** setSavedGame(int **board, int *next_player, char username[20],int mode);
 /// Destroys created file
-int destroyFile(char username[20]);
+int destroyFile(char username[20],int mode);
 /// Checks if a file exists or no
-int fileExist(char username[20]);
-/// Plays 1vs1 mode
-//void playFirstMode(int **game_board, User *my_player);
-/// Plays saved game
-void playSavedGame(int **game_board, User *my_player);
+int fileExist(char username[20],int mode);
+/************************** Play Human vs. Human mode logic *******************************/
+void playFirstMode(int **game_board, User *my_player);
+
+/******************************** Play saved game logic ******************************/
+void playSavedGameHuman(int **game_board, User *my_player);
