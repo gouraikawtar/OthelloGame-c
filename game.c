@@ -80,7 +80,10 @@ void game()
                         playSavedGameHuman(game_board,my_player);
                     else
                     {
-                        printw("No saved game!\nPress any key to go back to main menu..");
+                        move(getmaxy(stdscr)/2,getmaxx(stdscr)/4);
+                        printw("No saved game!");
+                        move(getmaxy(stdscr)-2,getmaxx(stdscr)-40);
+                        printw("Press any key to continue..");
                         getch();
                     }
                     refresh();
@@ -95,7 +98,10 @@ void game()
                             playSavedGameVsRobot_Easy(game_board,my_player);
                         else
                         {
-                            printw("No saved game!\nPress any key to go back to main menu..");
+                            move(getmaxy(stdscr)/2,getmaxx(stdscr)/4);
+                            printw("No saved game!");
+                            move(getmaxy(stdscr)-2,getmaxx(stdscr)-40);
+                            printw("Press any key to continue..");
                             getch();
                         }
                         refresh();
@@ -106,7 +112,10 @@ void game()
                             playSavedGameVsRobot_Hard(game_board,my_player);
                         else
                         {
-                            printw("No saved game!\nPress any key to go back to main menu..");
+                            move(getmaxy(stdscr)/2,getmaxx(stdscr)/4);
+                            printw("No saved game!");
+                            move(getmaxy(stdscr)-2,getmaxx(stdscr)-40);
+                            printw("Press any key to continue..");
                             getch();
                         }
                         refresh();

@@ -817,9 +817,13 @@ void playFirstMode(int **game_board, User *my_player)
                             {
                                 case 0: // Yes
                                     clear();
+                                    move(getmaxy(stdscr)/2,getmaxx(stdscr)/4);
                                     printw("Game saved successfully !\n");
+                                    move(getmaxy(stdscr)-2,getmaxx(stdscr)-40);
+                                    printw("Press any key to continue..");
                                     destroyBoard(game_board);
                                     game_board = NULL;
+                                    getch();
                                     break;
                                 case 1: // No
                                     clear();
@@ -852,7 +856,8 @@ void playFirstMode(int **game_board, User *my_player)
         displayWinner(game_board,my_player);
         destroyBoard(game_board);
         destroyFile(my_player->userName,mode);
-        printw("Press any key to go back to main menu..");
+        move(getmaxy(stdscr)-2,getmaxx(stdscr)-40);
+        printw("Press any key to continue..");
         getch();
     }
 }
@@ -911,9 +916,13 @@ void playSavedGameHuman(int **game_board, User *my_player)
                             {
                                 case 0: // Yes
                                     clear();
+                                    move(getmaxy(stdscr)/2,getmaxx(stdscr)/4);
                                     printw("Game saved successfully !\n");
+                                    move(getmaxy(stdscr)-2,getmaxx(stdscr)-40);
+                                    printw("Press any key to continue..");
                                     destroyBoard(game_board);
                                     game_board = NULL;
+                                    getch();
                                     break;
                                 case 1: // No
                                     clear();
@@ -946,7 +955,8 @@ void playSavedGameHuman(int **game_board, User *my_player)
         displayWinner(game_board,my_player);
         destroyBoard(game_board);
         destroyFile(my_player->userName,mode);
-        printw("Press any key to go back to main menu..");
+        move(getmaxy(stdscr)-2,getmaxx(stdscr)-40);
+        printw("Press any key to continue..");
         getch();
     }
 }

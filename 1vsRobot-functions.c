@@ -101,9 +101,13 @@ void playVsRobot_Easy(int **game_board, User *my_player)
                         {
                             case 0: // Yes
                                 clear();
+                                move(getmaxy(stdscr)/2,getmaxx(stdscr)/4);
                                 printw("Game saved successfully !\n");
+                                move(getmaxy(stdscr)-2,getmaxx(stdscr)-40);
+                                printw("Press any key to continue..");
                                 destroyBoard(game_board);
                                 game_board = NULL;
+                                getch();
                                 break;
                             case 1: // No
                                 clear();
@@ -121,7 +125,7 @@ void playVsRobot_Easy(int **game_board, User *my_player)
             }
             break;
         case 2: // Player 2 = ROBOT
-            printw("Robot is thinking.. | Press Enter to continue :");
+            printw("Player %d (Robot) | Press Enter to continue :",player);
             randomPosition = random_move (player , game_board, &legPosNb);
             savePlayer_sPosition(randomPosition.x,randomPosition.y,player,my_player->userName,mode);
             game_board = changeColor(game_board,player,randomPosition.x,randomPosition.y);
@@ -139,7 +143,8 @@ void playVsRobot_Easy(int **game_board, User *my_player)
         displayWinner(game_board,my_player);
         destroyBoard(game_board);
         destroyFile(my_player->userName,mode);
-        printw("Press any key to go back to main menu..");
+        move(getmaxy(stdscr)-2,getmaxx(stdscr)-40);
+        printw("Press any key to continue..");
         getch();
     }
 }
@@ -199,9 +204,13 @@ void playSavedGameVsRobot_Easy(int **game_board, User *my_player)
                         {
                             case 0: // Yes
                                 clear();
+                                move(getmaxy(stdscr)/2,getmaxx(stdscr)/4);
                                 printw("Game saved successfully !\n");
+                                move(getmaxy(stdscr)-2,getmaxx(stdscr)-40);
+                                printw("Press any key to continue..");
                                 destroyBoard(game_board);
                                 game_board = NULL;
+                                getch();
                                 break;
                             case 1: // No
                                 clear();
@@ -219,7 +228,7 @@ void playSavedGameVsRobot_Easy(int **game_board, User *my_player)
             }
             break;
         case 2: // Player 2 = ROBOT
-            printw("Robot is thinking.. | Press Enter to continue :");
+            printw("Player %d (Robot) | Press Enter to continue :",player);
             randomPosition = random_move (player , game_board, &legPosNb);
             savePlayer_sPosition(randomPosition.x,randomPosition.y,player,my_player->userName,mode);
             game_board = changeColor(game_board,player,randomPosition.x,randomPosition.y);
@@ -227,7 +236,7 @@ void playSavedGameVsRobot_Easy(int **game_board, User *my_player)
             enQueue(q,r_col,r_line,player); // Add robot chosen position to movements queue
             if(play(game_board,player%2+1))
                 player = player%2+1;
-            //getch();
+            getch();
             clear();
             break;
         }
@@ -237,7 +246,8 @@ void playSavedGameVsRobot_Easy(int **game_board, User *my_player)
         displayWinner(game_board,my_player);
         destroyBoard(game_board);
         destroyFile(my_player->userName,mode);
-        printw("Press any key to go back to main menu..");
+        move(getmaxy(stdscr)-2,getmaxx(stdscr)-40);
+        printw("Press any key to continue..");
         getch();
     }
 }
@@ -358,9 +368,13 @@ void playVsRobot_Hard (int **game_board, User *my_player)
                         {
                             case 0: // Yes
                                 clear();
+                                move(getmaxy(stdscr)/2,getmaxx(stdscr)/4);
                                 printw("Game saved successfully !\n");
+                                move(getmaxy(stdscr)-2,getmaxx(stdscr)-40);
+                                printw("Press any key to continue..");
                                 destroyBoard(game_board);
                                 game_board = NULL;
+                                getch();
                                 break;
                             case 1: // No
                                 clear();
@@ -378,7 +392,7 @@ void playVsRobot_Hard (int **game_board, User *my_player)
             }
             break;
         case 2: // Player 2 = ROBOT
-            printw("Robot turn | Press Enter to continue :");
+            printw("Player %d (Robot) | Press Enter to continue :",player);
             alpha_beta (player,game_board,3,alpha,beta,&legPosNb,&bestMove);
             game_board = changeColor(game_board,player,bestMove.x,bestMove.y);
             setRobotMoves(&r_col,&r_line,bestMove);   // transform robot chosen position from int to char
@@ -395,7 +409,8 @@ void playVsRobot_Hard (int **game_board, User *my_player)
         displayWinner(game_board,my_player);
         destroyBoard(game_board);
         destroyFile(my_player->userName,mode);
-        printw("Press any key to go back to main menu..");
+        move(getmaxy(stdscr)-2,getmaxx(stdscr)-40);
+        printw("Press any key to continue..");
         getch();
     }
 }
@@ -454,9 +469,13 @@ void playSavedGameVsRobot_Hard (int **game_board, User *my_player)
                         {
                             case 0: // Yes
                                 clear();
+                                move(getmaxy(stdscr)/2,getmaxx(stdscr)/4);
                                 printw("Game saved successfully !\n");
+                                move(getmaxy(stdscr)-2,getmaxx(stdscr)-40);
+                                printw("Press any key to continue..");
                                 destroyBoard(game_board);
                                 game_board = NULL;
+                                getch();
                                 break;
                             case 1: // No
                                 clear();
@@ -474,7 +493,7 @@ void playSavedGameVsRobot_Hard (int **game_board, User *my_player)
         }
             break;
         case 2: // Player 2 = ROBOT
-            printw("Robot turn | Press Enter to continue :");
+            printw("Player %d (Robot) | Press Enter to continue :",player);
             alpha_beta (player,game_board,3,alpha,beta,&legPosNb,&bestMove);
             game_board = changeColor(game_board,player,bestMove.x,bestMove.y);
             setRobotMoves(&r_col,&r_line,bestMove);   // transform robot chosen position from int to char
@@ -491,7 +510,8 @@ void playSavedGameVsRobot_Hard (int **game_board, User *my_player)
         displayWinner(game_board,my_player);
         destroyBoard(game_board);
         destroyFile(my_player->userName,mode);
-        printw("Press any key to go back to main menu..");
+        move(getmaxy(stdscr)-2,getmaxx(stdscr)-40);
+        printw("Press any key to continue..");
         getch();
     }
 }

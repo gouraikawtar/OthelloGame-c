@@ -352,7 +352,7 @@ int exitGameMenu()
     // Window = stdscr in this case
     x_max = getmaxx(stdscr); y_max = getmaxy(stdscr);
     // creates a window
-    WINDOW *menu_win = newwin(10,20,y_max/6,x_max/3);
+    WINDOW *menu_win = newwin(10,50,y_max/6,x_max/3);
     refresh();
     // sets window's borders
     box(menu_win,0,0);
@@ -367,7 +367,7 @@ int exitGameMenu()
     // while no option is chosen, keeps displaying the menu
     while(1)
     {
-        mvwprintw(menu_win,1,1,"Do you want to save for later ?\n");
+        mvwprintw(menu_win,1,1,"Do you want to save for later ?");
         // sets y position on 3
         y = 3;
         for(int i=0;i<2;i++)
