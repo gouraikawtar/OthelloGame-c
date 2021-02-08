@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1612803595 source:d:\projets_c\othello_game[in c]\1vs1-functions.c
+1612822668 source:d:\projets_c\othello_game[in c]\1vs1-functions.c
 	"main.h"
 
 1610849163 c:\ncurses\include\ncursesw\ncurses.h
@@ -29,7 +29,7 @@
 	<wchar.h>
 	<ncursesw/unctrl.h>
 
-1612751870 d:\projets_c\othello_game[in c]\1vs1-functions.h
+1612822729 d:\projets_c\othello_game[in c]\1vs1-functions.h
 
 1612805169 source:d:\projets_c\othello_game[in c]\1vsrobot-functions.c
 	"main.h"

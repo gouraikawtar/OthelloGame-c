@@ -628,6 +628,37 @@ void displayWinner(int** board, User *my_player)
 
 /************************************* Reset saved game's logic **********************************/
 
+int createFile(char username[20],int mode)
+{
+    FILE *my_file = NULL;
+    char *path = NULL;
+    int created = 0;
+    // Setting our file's path
+    path = malloc(N_PATH*sizeof(char));
+    strcpy(path,".\\game_files\\");
+    strcat(path,username);
+    switch(mode)
+    {
+    case 1: // Human vs. Human
+        strcat(path,".bin");
+        break;
+    case 2: // Human vs. Robot (easy)
+        strcat(path,"_easy.bin");
+        break;
+    case 3: // Human vs Robot (hard)
+        strcat(path,"_hard.bin");
+        break;
+    }
+
+    my_file = fopen(path,"w");
+    if(my_file != NULL)
+    {
+        created = 1;
+        fclose(my_file);
+    }
+    return created;
+}
+
 int savePlayer_sPosition(int x, int y, int current_player, char username[20], int mode)
 {
     char *path = NULL;
@@ -776,8 +807,9 @@ void playFirstMode(int **game_board, User *my_player)
     // Initialize game
     game_board = initBoard(game_board); // Allocates memory for board, and set initial positions
     player = 1; //  Set turn to 1 (==color to BLACK)
-    mode = 1;
+    mode = 1;   // Mode = Human vs. Human
     q = createQueue();  // Create positions queue
+    createFile(my_player->userName,mode);   // Create file where the game will be saved
     // Start game
     while(!gameOver(game_board))
     {
@@ -809,7 +841,8 @@ void playFirstMode(int **game_board, User *my_player)
                             clear();
                             game_board = initBoard(game_board); // Reset board
                             player = 1; // Reset turn to 1
-                            q = createQueue();
+                            q = createQueue(); // Reset queue
+                            createFile(my_player->userName,mode);   // Reset file where the game will be saved
                             break;
                         case 2: // Exit
                             clear();
@@ -875,9 +908,9 @@ void playSavedGameHuman(int **game_board, User *my_player)
     // initialize game
     game_board = initBoard(game_board); // Set initial positions on board
     game_board = setSavedGame(game_board,&player,my_player->userName,mode);  // Set saved game
-    q = createQueue();
+    q = createQueue();  // Create queue
 
-       // Start game
+    // Start game
     while(!gameOver(game_board))
     {
         displayBoard(game_board);
@@ -908,7 +941,8 @@ void playSavedGameHuman(int **game_board, User *my_player)
                             clear();
                             game_board = initBoard(game_board); // Reset board
                             player = 1; // Reset turn to 1
-                            q = createQueue();
+                            q = createQueue(); // Reset queue
+                            createFile(my_player->userName,mode);   // Reset file where the game will be saved
                             break;
                         case 2: // Exit
                             clear();

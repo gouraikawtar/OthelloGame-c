@@ -74,7 +74,8 @@ void displayBestScores(User *tab);
 void displayWinner(int** board, User *my_player);
 
 /*********************************** Reset saved game's logic ****************************/
-
+/// Creates file
+int createFile(char username[20],int mode);
 /// Saves player's position
 int savePlayer_sPosition(int x, int y, int current_player, char username[20],int mode);
 /// Sets saved undone game

@@ -58,10 +58,11 @@ void playVsRobot_Easy(int **game_board, User *my_player)
     Queue *q = NULL;
 
     // initialize game
-    game_board = initBoard(game_board);
-    player = 1;
-    mode = 2;
-    q = createQueue();
+    game_board = initBoard(game_board); // Set board on initial positions
+    player = 1; // Set player to 1 (color to BLACK)
+    mode = 2;   // set mode to 2 (1 vs. ROBOT easy)
+    q = createQueue();  // Set queue
+    createFile(my_player->userName,mode);   // Create file where the game will be saved
 
     while(!gameOver(game_board))
     {
@@ -91,9 +92,10 @@ void playVsRobot_Easy(int **game_board, User *my_player)
                         break;
                     case 1: // Restart
                         clear();
-                        game_board = initBoard(game_board);
-                        player = 1;
-                        q = createQueue();
+                        game_board = initBoard(game_board); // Reset board
+                        player = 1; // Reset turn to 1
+                        q = createQueue();  // Reset queue
+                        createFile(my_player->userName,mode);   // Reset file where the game will be saved
                         break;
                     case 2: // Exit
                         clear();
@@ -102,7 +104,7 @@ void playVsRobot_Easy(int **game_board, User *my_player)
                             case 0: // Yes
                                 clear();
                                 move(getmaxy(stdscr)/2,getmaxx(stdscr)/4);
-                                printw("Game saved successfully !\n");
+                                printw("Game saved successfully !");
                                 move(getmaxy(stdscr)-2,getmaxx(stdscr)-40);
                                 printw("Press any key to continue..");
                                 destroyBoard(game_board);
@@ -194,9 +196,10 @@ void playSavedGameVsRobot_Easy(int **game_board, User *my_player)
                         break;
                     case 1: // Restart
                         clear();
-                        game_board = initBoard(game_board);
-                        player = 1;
-                        q = createQueue();
+                        game_board = initBoard(game_board); // Reset board
+                        player = 1; // Reset turn to 1
+                        q = createQueue();  // Reset queue
+                        createFile(my_player->userName,mode);   // Reset file where the game will be saved
                         break;
                     case 2: // Exit
                         clear();
@@ -329,7 +332,7 @@ void playVsRobot_Hard (int **game_board, User *my_player)
     position bestMove ;
     int legPosNb ;
     int alpha = -64 , beta = +64 ; // alpha = -Infinity , beta = +Infinity
-
+    createFile(my_player->userName,mode);   // Create file where the game will be saved
     while(!gameOver(game_board))
     {
         displayBoard(game_board);
@@ -361,6 +364,7 @@ void playVsRobot_Hard (int **game_board, User *my_player)
                         game_board = initBoard(game_board);
                         player = 1;
                         q = createQueue();
+                        createFile(my_player->userName,mode);   // Reset file where the game will be saved
                         break;
                     case 2: // Exit
                         clear();
@@ -369,7 +373,7 @@ void playVsRobot_Hard (int **game_board, User *my_player)
                             case 0: // Yes
                                 clear();
                                 move(getmaxy(stdscr)/2,getmaxx(stdscr)/4);
-                                printw("Game saved successfully !\n");
+                                printw("Game saved successfully !");
                                 move(getmaxy(stdscr)-2,getmaxx(stdscr)-40);
                                 printw("Press any key to continue..");
                                 destroyBoard(game_board);
@@ -462,6 +466,7 @@ void playSavedGameVsRobot_Hard (int **game_board, User *my_player)
                         game_board = initBoard(game_board);
                         player = 1;
                         q = createQueue();
+                        createFile(my_player->userName,mode);   // Reset file where the game will be saved
                         break;
                     case 2: // Exit
                         clear();
@@ -470,7 +475,7 @@ void playSavedGameVsRobot_Hard (int **game_board, User *my_player)
                             case 0: // Yes
                                 clear();
                                 move(getmaxy(stdscr)/2,getmaxx(stdscr)/4);
-                                printw("Game saved successfully !\n");
+                                printw("Game saved successfully !");
                                 move(getmaxy(stdscr)-2,getmaxx(stdscr)-40);
                                 printw("Press any key to continue..");
                                 destroyBoard(game_board);
