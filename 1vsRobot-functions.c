@@ -397,7 +397,7 @@ void playVsRobot_Hard (int **game_board, User *my_player)
             break;
         case 2: // Player 2 = ROBOT
             printw("Player %d (Robot) | Press Enter to continue :",player);
-            alpha_beta (player,game_board,3,alpha,beta,&legPosNb,&bestMove);
+            alpha_beta (player,game_board,5,alpha,beta,&legPosNb,&bestMove);
             game_board = changeColor(game_board,player,bestMove.x,bestMove.y);
             setRobotMoves(&r_col,&r_line,bestMove);   // transform robot chosen position from int to char
             enQueue(q,r_col,r_line,player); // Add robot chosen position to movements queue
@@ -499,7 +499,7 @@ void playSavedGameVsRobot_Hard (int **game_board, User *my_player)
             break;
         case 2: // Player 2 = ROBOT
             printw("Player %d (Robot) | Press Enter to continue :",player);
-            alpha_beta (player,game_board,3,alpha,beta,&legPosNb,&bestMove);
+            alpha_beta (player,game_board,5,alpha,beta,&legPosNb,&bestMove);
             game_board = changeColor(game_board,player,bestMove.x,bestMove.y);
             setRobotMoves(&r_col,&r_line,bestMove);   // transform robot chosen position from int to char
             enQueue(q,r_col,r_line,player); // Add robot chosen position to movements queue
