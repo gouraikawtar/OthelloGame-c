@@ -8,7 +8,7 @@ int usernameExist(char username[20])
     int exist = 0;
     User u_exist;
     FILE *f_users = NULL;
-    f_users = fopen(".\\game_files\\users.bin","rb");
+    f_users = fopen(".\\game_files\\users\\users.bin","rb");
     if(f_users != NULL)
     {
         while(!feof(f_users) && exist == 0)
@@ -27,7 +27,7 @@ int userExist(char username[20], char password[20])
     int exist = 0;
     User u_exist;
     FILE *f_users = NULL;
-    f_users = fopen(".\\game_files\\users.bin","rb");
+    f_users = fopen(".\\game_files\\users\\users.bin","rb");
     if(f_users != NULL)
     {
         while(!feof(f_users) && exist == 0)
@@ -47,7 +47,7 @@ User* getUser(User *my_player, char username[20], char password[20])
     int find = 0;
 
     my_player = malloc(sizeof(User));
-    f_users = fopen(".\\game_files\\users.bin","rb");
+    f_users = fopen(".\\game_files\\users\\users.bin","rb");
     if(f_users != NULL)
     {
         while(!feof(f_users) && find == 0)
@@ -86,7 +86,7 @@ User* signup(User *new_player)
     new_player->score = 0;
     refresh();
 
-    f_users = fopen(".\\game_files\\users.bin","ab+");
+    f_users = fopen(".\\game_files\\users\\users.bin","ab+");
     if(f_users != NULL)
     {
         fwrite(new_player,sizeof(User),1,f_users);

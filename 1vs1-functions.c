@@ -525,7 +525,7 @@ User* setScore(User *my_player, int new_score)
     if(new_score > my_player->score)
     {
         my_player->score = new_score;
-        f_users = fopen(".\\game_files\\users.bin","ab+");
+        f_users = fopen(".\\game_files\\users\\users.bin","ab+");
         if(f_users != NULL)
         {
             while(find == 0 && !feof(f_users))
@@ -547,7 +547,7 @@ User* getBestScores()
     int i;
 
     tab = malloc(T_MAX*sizeof(User));
-    f_best_scores = fopen(".\\game_files\\best_scores.bin","rb");
+    f_best_scores = fopen(".\\game_files\\best_scores\\best_scores.bin","rb");
     if(f_best_scores != NULL)
     {
         i = 0;
@@ -578,7 +578,7 @@ void setBestScores(User my_player)
         tab[i] = my_player;
     }
 
-    f_best_scores = fopen(".\\game_files\\best_scores.bin","wb");
+    f_best_scores = fopen(".\\game_files\\best_scores\\best_scores.bin","wb");
     if(f_best_scores != NULL)
     {
         for(i=0;i<T_MAX;i++)
@@ -635,7 +635,7 @@ int createFile(char username[20],int mode)
     int created = 0;
     // Setting our file's path
     path = malloc(N_PATH*sizeof(char));
-    strcpy(path,".\\game_files\\");
+    strcpy(path,".\\game_files\\saved_games\\");
     strcat(path,username);
     switch(mode)
     {
@@ -668,7 +668,7 @@ int savePlayer_sPosition(int x, int y, int current_player, char username[20], in
 
     // Setting our file's path
     path = malloc(N_PATH*sizeof(char));
-    strcpy(path,".\\game_files\\");
+    strcpy(path,".\\game_files\\saved_games\\");
     strcat(path,username);
     switch(mode)
     {
@@ -706,7 +706,7 @@ int** setSavedGame(int **board, int *next_player, char username[20], int mode)
 
     // Setting our file's path
     path = malloc(N_PATH*sizeof(char));
-    strcpy(path,".\\game_files\\");
+    strcpy(path,".\\game_files\\saved_games\\");
     strcat(path,username);
     switch(mode)
     {
@@ -744,7 +744,7 @@ int destroyFile(char username[20],int mode)
     int removed = 0;
     // Setting our file's path
     path = malloc(N_PATH*sizeof(char));
-    strcpy(path,".\\game_files\\");
+    strcpy(path,".\\game_files\\saved_games\\");
     strcat(path,username);
     switch(mode)
     {
@@ -772,7 +772,7 @@ int fileExist(char username[20], int mode)
     int exists = 0; // file does not exist
     // Setting our file's path
     path = malloc(N_PATH*sizeof(char));
-    strcpy(path,".\\game_files\\");
+    strcpy(path,".\\game_files\\saved_games\\");
     strcat(path,username);
     switch(mode)
     {
@@ -851,7 +851,7 @@ void playFirstMode(int **game_board, User *my_player)
                                 case 0: // Yes
                                     clear();
                                     move(getmaxy(stdscr)/2,getmaxx(stdscr)/4);
-                                    printw("Game saved successfully !\n");
+                                    printw("Game saved successfully !");
                                     move(getmaxy(stdscr)-2,getmaxx(stdscr)-40);
                                     printw("Press any key to continue..");
                                     destroyBoard(game_board);

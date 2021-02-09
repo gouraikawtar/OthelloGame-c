@@ -51,5 +51,6 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-
+./game_files/users
+./game_files/saved_games
 ./libncursesw6.dll
